@@ -1,4 +1,4 @@
 # rest-countries
 
-username: info@vm-soft.net
-password: user1234
+# username: info@vm-soft.net
+# password: user1234

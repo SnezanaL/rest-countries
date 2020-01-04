@@ -1,0 +1,47 @@
+@import '~@angular/material/theming';
+//@import '_variable';
+@import 'palette';
+@import './component-themes';
+
+
+@include mat-core();
+
+ $primary: mat-palette($md-verylight, A100);
+ $accent: mat-palette($md-verylight);
+// $warn: mat-palette($mat-red);
+// $text: mat-palette($md-verydark);
+// $input: mat-palette($md-darkgrey);
+// $theme: mat-light-theme($primary, $accent, $text);
+
+// $primary: mat-palette($mat-indigo);
+// $accent: mat-palette($mat-pink, A200, A100, A400);
+$warn: mat-palette($md-verydark);
+$theme: mat-light-theme($primary, $accent, $warn);
+
+
+@include angular-material-theme($theme);
+@include component-themes($theme);
+
+// Our dark theme
+.dark-theme {
+  color: $light-primary-text;
+  $dark-primary: mat-palette($md-darkblue);
+  $dark-accent: mat-palette($md-backgrounddm);
+  $dark-warn: mat-palette($md-verylight, A100);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+  @include component-themes($dark-theme);
+}
+
+// Our login theme
+.login-theme {
+  //color: $light-primary-text;
+  $login-primary: mat-palette($md-mcblue);
+  $login-accent: mat-palette($mat-pink, A200, A100, A400);
+  $login-warn: mat-palette($mat-red);
+  $login-theme: mat-light-theme($login-primary, $login-accent, $login-warn);
+
+  @include angular-material-theme($login-theme);
+  @include component-themes($login-theme);
+}

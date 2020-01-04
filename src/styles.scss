@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './sass/material-theme';
+@import './sass/_variable';
+
+body {
+  font-family: 'Nunito Sans', sans-serif !important;
+}
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+.login100-form-btn[disabled] {
+  // styles when the element is disabled
+  background-color: #ddd !important;
+  border: 2px solid #ddd !important;
+  cursor: unset !important;
+}
+.mat-app-background {
+  min-height: 100vh;
+  height: 100%;
+}

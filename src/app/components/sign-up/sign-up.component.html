@@ -1,0 +1,121 @@
+<div class="login-theme sign-up container-login100">
+  <mat-card class="signUp-card wrap-login100">
+    <h2>Sign Up</h2>
+    <form  class="signUp-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <p>Email Address</p>
+      <mat-form-field class="example-full-width">
+        <input matInput [formControl] ="emailFormControl"
+                [errorStateMatcher]="matcher"
+                 placeholder="Enter your email address" #userEmail required>
+                <span matPrefix><mat-icon>perm_identity</mat-icon>
+                </span>
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        
+      </mat-form-field>
+      <p>Password</p>
+      <mat-form-field>
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"  formControlName="password"
+         #userPwd required>
+        <span matPrefix><mat-icon>lock_open</mat-icon>
+        </span>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn">
+          <div class="login100-form-bgbtn"></div>
+          <button class="login100-form-btn" type="submit" [disabled]="!signUpForm.valid" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+              Sign Up
+          </button>
+        </div>
+      </div>
+      <!-- <button class="form-button" type="submit" [disabled]="!signUpForm.valid">Submit</button> -->
+      <div class="mt-5 text-center mb-4">
+        <span class="or"><span class="orInner">Or Sign Up Using</span></span>
+      </div>
+      <div class="flex-c-m">
+        <!-- Continue with Google -->
+         
+          <button type="button" class="btn login100-social-item bg3" (click)="authService.GoogleAuth()">
+            <i class="fa fa-google-plus"></i>
+            
+          </button>
+    
+
+        <!-- Continue with Facebook -->
+ 
+          <button type="button" class="btn login100-social-item bg1" (click)="authService.FacebookAuth()">
+            <i class="fa fa-facebook"></i>
+            
+          </button>
+
+      </div>
+
+      <div class="flex-col-c p-t-155">
+          <span class="txt1 p-b-17 redirectToLogin">
+            Already have an account?
+          </span>
+
+          <a href="#" class="txt2 redirect" routerLink="/sign-in">
+            Log In
+          </a>
+        </div>
+
+    </form>
+  </mat-card>
+
+</div>
+
+
+<!-- <div class="displayTable">
+  <div class="displayTableCell">
+
+    <div class="authBlock">
+      <h3>Sign Up</h3>
+
+      <div class="formGroup">
+        <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
+      </div>
+
+      <div class="formGroup">
+        <input type="password" class="formControl" placeholder="Password" #userPwd required>
+      </div>
+
+      <div class="formGroup">
+        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+      </div>
+
+      <div class="formGroup">
+        <span class="or"><span class="orInner">Or</span></span>
+      </div>
+
+      <!-- Continue with Google -->
+      <!-- <div class="formGroup">
+        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+          <i class="fab fa-google-plus-g"></i>
+          Continue with Google
+        </button>
+      </div> -->
+
+      <!-- Continue with Facebook -->
+     <!-- <div class="formGroup">
+        <button type="button" class="btn facebookBtn" (click)="authService.FacebookAuth()">
+          <i class="fab fa-facebook"></i>
+          Continue with Facebook
+        </button>
+      </div>
+    </div>
+
+    <div class="redirectToLogin">
+      <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
+    </div>
+  </div>
+
+</div> -->

@@ -1,0 +1,55 @@
+<div [ngClass]="{'dark-theme': isDarkTheme | async}">
+  <div class="mat-app-background">
+    <mat-toolbar color="primary" *ngIf="isAuthenticated()">
+
+        <button mat-icon-button >
+          <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+        </button>
+      
+        <span>Where in the world?</span>
+
+        <!-- This fills the remaining space of the current row -->
+        <span class="example-fill-remaining-space"></span>
+      
+        <span>
+          <mat-slide-toggle 
+            [checked]="isDarkTheme | async" 
+            (change)="toggleDarkTheme($event.checked)">
+            Dark Mode
+          </mat-slide-toggle>
+        </span>
+    </mat-toolbar> 
+
+    <mat-sidenav-container class="example-container" >
+      <mat-sidenav #drawer mode="over" [(opened)]="opened"  role="navigation" >
+
+
+        <div class="" *ngIf="isAuthenticated()">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" [routerLink]="['/countries']">
+                <mat-icon>wallpaper</mat-icon><span>Countries</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" [routerLink]="['/dashboard']">
+                <mat-icon>person_outline</mat-icon><span>User Profile</span>
+              </a>
+            </li>
+            <!-- Calling SignOut() Api from AuthService -->
+            <li class="nav-item">
+              <a href='' class="nav-link" (click)="authService.SignOut()">
+                <!-- <i class="fas fa-sign-out-alt"></i> -->
+                <mat-icon>exit_to_app</mat-icon><span>Sign out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    </div>
+  </div>
+  

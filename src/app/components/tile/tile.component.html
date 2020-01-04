@@ -1,0 +1,71 @@
+<div class="tile">
+    <ngx-spinner></ngx-spinner>
+     <!-- <app-search></app-search> -->
+    <!-- <p><ng-content></ng-content></p> -->
+    <div class="">
+    <div class="row mb-5 justify-content-between">
+        <div class="col-sm-6 ">
+            <mat-card class="searchCard">
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="dropdown" [class.open]="!autocompleteBox.hide">
+                      <mat-form-field class="example-full-width">  
+                        <mat-icon matPrefix>search</mat-icon>      
+                        <input matInput
+                        #searchTextBox 
+                        (input)="filterCountries(searchTextBox.value)"
+                        (keyup)="onKeyup(searchTextBox.value)"
+                        class="src-input dropdown-toggle" type="search" name="search" placeholder="Search for a country..."
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        
+                    </mat-form-field>
+                      
+                      
+                      
+                    </div>
+                    
+                  </form>
+            </mat-card>
+        </div>
+       
+        <div class="col-sm-3 align-self-end">
+            <mat-card class="regionCard">
+                <mat-form-field>
+                    <mat-label>Filter by Region</mat-label>
+                    <mat-select [(ngModel)]="selectedValue" (ngModelChange)="onSelectedChange($event)">
+                      <!-- <mat-option>None</mat-option> -->
+                      <mat-option value="africa">Africa</mat-option>
+                      <mat-option value="americas">Americas</mat-option>
+                      <mat-option value="asia">Asia</mat-option>
+                      <mat-option value="europe">Europe</mat-option>
+                      <mat-option value="oceania">Oceania</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <!-- <p>You selected: {{selectedValue}}</p> -->
+            </mat-card>
+        </div>
+    </div>
+    </div>
+    
+   
+    <!-- <input [(ngModel)]="searchText"> -->
+    <p *ngIf="errMessage">{{errMessage}}</p>
+    <!-- [cols]="cols | async" -->
+    <mat-grid-list #grid  gutterSize="5vw" rowHeight="4:5">
+        <mat-grid-tile  *ngFor="let countries of Countries">
+            <mat-card class="settings-card"
+                routerLink="/single-country/{{countries.name}}"
+            >
+            <!-- [routerLink]="['/single-country/', countries.name ]" -->
+                <img mat-card-image src="{{countries.flag}}">
+                    
+                <mat-card-content class="countries-info">
+                    <h3>{{countries.name}}</h3>
+                    <p><strong>Population: </strong>{{countries.population}}</p>
+                    <p><strong>Region: </strong>{{countries.region}}</p>
+                    <p><strong>Capital: </strong>{{countries.capital}}</p>
+
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

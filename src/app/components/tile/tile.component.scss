@@ -1,0 +1,158 @@
+@import '~@angular/material/theming';
+
+@mixin tile-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+ // $background-color: mat-color($background, card);
+
+  .tile {
+    @include mat-elevation(2);
+    background-color: mat-color($accent);
+    //border: 1rem solid $background-color;
+    padding: 2rem;
+    min-height: 100vh;
+    //min-height: 200px;
+    //min-width: 200px;
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .mat-card {
+      @include mat-elevation(8);
+      background-color: mat-color($primary);
+     
+      
+    }
+    .mat-focused .mat-form-field-label {
+      @include mat-elevation(0);
+      color: mat-color($warn) !important;
+    }
+    .mat-form-field-label {
+      @include mat-elevation(0);
+      color: mat-color($warn) !important;
+    }
+    
+    .mat-grid-tile {
+      @include mat-elevation(8);
+      background-color: mat-color($primary);
+      box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.03), 0px 3px 3px 1px rgba(0, 0, 0, 0.02), 0px 3px 8px 2px rgba(0, 0, 0, 0.01);
+      border-radius: 5px;
+      .mat-card {
+        @include mat-elevation(8);
+        background-color: mat-color($primary);
+        
+      }
+    }
+    p {
+      color: mat-color($warn);
+      line-height: 0.4rem;
+      font-size: 0.8rem;
+    }
+  }
+  .mat-app-background {
+    @include mat-elevation(0);
+    background-color: mat-color($accent);
+    .borderCountries {
+      @include mat-elevation(2);
+      background-color: mat-color($primary);
+    }
+    .mat-raised-button {
+      @include mat-elevation(1);
+      background-color: mat-color($primary);
+      // mat-icon {
+      //   color: mat-color($accent);;
+      // }
+    }
+  }
+}
+.mat-card {
+  font-family: 'Nunito Sans', sans-serif;
+  box-shadow: none;
+  padding: 0;
+  height: 100%;
+  .mat-card-image {
+    min-height: 158px;
+    height: 50%;
+    object-fit: cover;
+    width: 106%;
+  }
+  .mat-card-image:first-child {
+    margin-top: 0;
+  }
+  .mat-card-content {
+    padding: 0 16px 16px;
+    h3 {
+      line-height: 1rem;
+      font-size: 1rem;
+      font-weight: 900;
+      padding-top: 7px;
+      padding-bottom: 13px;
+    }
+  }
+
+
+
+.mat-form-field-underline {
+  background-color: transparent !important;
+}
+
+
+
+
+}
+  .searchCard.mat-card {
+    height: 54px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.03), 0px 3px 3px 1px rgba(0, 0, 0, 0.02), 0px 3px 8px 2px rgba(0, 0, 0, 0.01);
+    .mat-form-field-label {
+      /*change color of label*/
+      //color: #858585 !important;
+      font-family: 'Nunito Sans', sans-serif;
+      line-height: 1.2rem;
+      font-size: 0.9rem;
+      top: 18px !important;
+        left: 10px;
+    }
+    .mat-focused .mat-form-field-label {
+      /*change color of label*/
+      //color: #858585 !important;
+      font-family: 'Nunito Sans', sans-serif;
+      line-height: 1.2rem;
+    }
+    mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
+      color: #858585;
+      top: 4px;
+      position: relative;
+    }
+    .example-full-width {
+      padding: 0px 30px;
+      width: 110%;
+      height: 54px;
+      /* margin-bottom: 40px !important; */
+  }
+  }
+  .regionCard.mat-card {
+    height: 54px;
+    margin-bottom: 5px;
+    margin-right: 0px;
+    padding-left: 15px;
+    box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.03), 0px 3px 3px 1px rgba(0, 0, 0, 0.02), 0px 3px 8px 2px rgba(0, 0, 0, 0.01);
+  }
+
+  .nav-item {
+    cursor: pointer;
+    
+    span {
+      top: -6px;
+      position: relative;
+      margin-left: 12px;
+    }
+    .mat-icon {
+      top: 1px;
+      position: relative;
+    }
+    
+  }
+

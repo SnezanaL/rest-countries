@@ -1,0 +1,53 @@
+@import '~@angular/material/theming';
+
+@mixin toolbar-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warm: map-get($theme, warn);
+
+  
+   .mat-drawer {
+     @include mat-elevation(2);
+     background-color: mat-color($accent) !important;
+     .nav-item {
+      cursor: pointer;
+      &:hover {
+        background-color:  mat-color($primary);
+      }
+    }
+   }
+
+
+}
+
+.mat-toolbar {
+  padding-left: 50px;
+  padding-right: 50px;
+  border-bottom: 3px solid rgba(80, 80, 80, 0.06);
+  .example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+  .sidebar-sticky {
+    span {
+      top: -6px;
+      position: relative;
+      margin-left: 12px;
+    }
+    .mat-icon {
+      top: -6px;
+      position: relative;
+    }
+    
+  }
+
+  
+}
+// span {
+//   top: -6px;
+//   position: relative;
+//   margin-left: 12px;
+// }
+
+

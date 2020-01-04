@@ -1,0 +1,41 @@
+<form class="form-inline my-2 my-lg-0">
+  <div class="dropdown" [class.open]="!autocompleteBox.hide">
+    <input
+    #searchTextBox 
+    (keyup)="onKeyup(searchTextBox.value)"
+    class="src-input dropdown-toggle" type="search" name="search" placeholder="Pretraga..."
+    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+    <p>{{searchTextBox.value}}</p>
+    <div  class="dropdown-menu" id="search-dropdown">
+      
+      <a 
+      *ngFor="let countries of countries"
+      routerLink="/country/{{countries.name}}"  
+                          
+      (click)="showDetail(countries)"
+      class="dropdown-item" href="">
+        {{countries.name}}
+      </a>
+    </div>
+    <mat-grid-list *ngIf="countries" #grid  gutterSize="5vw" rowHeight="4:5">
+      <mat-grid-tile  *ngFor="let items of countries">
+          <mat-card class="settings-card"
+              routerLink="/single-country/{{items.name}}"
+          >
+          <!-- [routerLink]="['/single-country/', countries.name ]" -->
+              <img mat-card-image src="{{items.flag}}">
+                  
+              <mat-card-content class="countries-info">
+                  <h3>{{items.name}}</h3>
+                  <p><strong>Population: </strong>{{items.population}}</p>
+                  <p><strong>Region: </strong>{{items.region}}</p>
+                  <p><strong>Capital: </strong>{{items.capital}}</p>
+
+              </mat-card-content>
+          </mat-card>
+      </mat-grid-tile>
+  </mat-grid-list>
+  </div>
+  
+</form>

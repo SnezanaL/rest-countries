@@ -1,0 +1,8 @@
+@import '../app/components/tile/tile.component';
+@import '../app/components/toolbar/toolbar.component';
+
+
+@mixin component-themes($theme) {
+  @include tile-theme($theme);
+  @include toolbar-theme($theme)
+}

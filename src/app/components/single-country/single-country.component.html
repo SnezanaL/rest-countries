@@ -1,0 +1,58 @@
+<div [ngClass]="{'dark-theme': isDarkTheme | async}">
+  <div class="mat-app-background">
+    <!-- <app-toolbar></app-toolbar> -->
+    <div class="content">
+
+        <div class="container" *ngIf="country">
+          <button mat-raised-button class="back-btn" routerLink="/countries/">
+            <mat-icon>keyboard_backspace</mat-icon>
+            Back
+          </button>
+          <div class="row">
+            
+            <div class="col-sm-5 col-12">
+              <img mat-card-image src="{{country.flag}}">
+            </div>
+            <div class="col-sm-7 col-12">
+              <div class="row">
+                <div class="col-sm-6 col-12">
+                  <h2>{{country.name}}</h2>
+                  <p><strong>Native Name: </strong>{{country.nativeName}}</p>
+                  <p><strong>Population: </strong>{{country.population}}</p>
+                  <p><strong>Region: </strong>{{country.region}}</p>
+                  <p><strong>Sub Region: </strong>{{country.subregion}}</p>
+                  <p><strong>Capital: </strong>{{country.capital}}</p>
+                </div>
+                <div class="col-sm-6 col-12">
+                  <p><strong>Top Level Domain: </strong>{{country.topLevelDomain}}</p>
+                  <p *ngIf="currencies"><strong>Currencies: </strong>{{currencies.code}}</p>
+                  <p ><strong>Languages: </strong><span class="lang" > {{languages.name}}</span></p>
+                </div>
+              </div>
+              <div class="borderC">
+                <div class="bordC"><strong>Border Countries: </strong></div>
+                <!-- <div class=""><span *ngFor="let item of country.borders; let i = index">{{item}}, </span></div> -->
+                <div class="bCountriesL" *ngIf="country" >
+                  <button mat-raised-button 
+                    (click)="goTo(country)"
+                     *ngFor="let country of countryN" 
+                    class="borderCountries"
+                    >
+                    {{country}}
+                  </button> 
+                  <!-- <button mat-raised-button 
+                  (click)="goTo(country)"
+              
+                  class="borderCountries"
+                  >
+                  {{countryC.name}}
+                </button> -->
+                </div> 
+                
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

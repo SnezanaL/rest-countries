@@ -6,7 +6,7 @@
 
 Deploy to gh-pages:
 ```
-$ ng build --prod --base-href "https://snezanal.github.io/rest-countries/" \
+$ ng build --prod --base-href "https://snezanal.github.io/rest-countries/" 
 $ npx angular-cli-ghpages --dir=dist/rest-countries
 ```
 

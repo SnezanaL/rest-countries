@@ -1,6 +1,12 @@
 <div class="login-theme sign-up container-login100">
   <mat-card class="signUp-card wrap-login100">
     <h2>Sign Up</h2>
+    <div class="user-details">
+      <h3>Login with this credentials:</h3>
+      <p>email: info@vm-soft.net</p>
+      <p>password: user1234</p>
+    </div>
+    
     <form  class="signUp-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         <p>Email Address</p>
       <mat-form-field class="example-full-width">
@@ -9,12 +15,12 @@
                  placeholder="Enter your email address" #userEmail required>
                 <span matPrefix><mat-icon>perm_identity</mat-icon>
                 </span>
-        <mat-hint>Errors appear instantly!</mat-hint>
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
+          Please enter a valid email address!
         </mat-error>
         <mat-error *ngIf="emailFormControl.hasError('required')">
-          Email is <strong>required</strong>
+          Email is <strong>required!</strong>
         </mat-error>
         
       </mat-form-field>

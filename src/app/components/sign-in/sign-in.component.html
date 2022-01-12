@@ -1,6 +1,11 @@
 <div  class="login-theme sign-up container-login100">
   <mat-card class="signUp-card wrap-login100">
     <h2>Sign In</h2>
+    <div class="user-details">
+      <h3>Login with this credentials:</h3>
+      <p>email: info@vm-soft.net</p>
+      <p>password: user1234</p>
+    </div>
     <form  class="signUp-form" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
         <p>Username</p>
       <mat-form-field class="example-full-width">

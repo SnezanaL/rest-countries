@@ -6,7 +6,7 @@
 
 @include mat-core();
 
- $primary: mat-palette($md-verylight, A100);
+ $primary: mat-palette($md-verylight, 500);
  $accent: mat-palette($md-verylight);
 // $warn: mat-palette($mat-red);
 // $text: mat-palette($md-verydark);

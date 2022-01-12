@@ -26,6 +26,7 @@ export class TileComponent  implements AfterContentInit {
   errMessage;
   regions;
   region;
+  asyncValue;
 
   mySubscription: any;
 

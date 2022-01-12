@@ -12,7 +12,8 @@ import { Countries } from '../model/countries';
 export class CountriesService {
 
     // Define API
-    apiURL = 'https://restcountries.eu/rest/v2';
+    //apiURL = 'https://restcountries.eu/rest/v2';
+    apiURL = 'https://restcountries.com/v2';
 
   constructor(private http: HttpClient) { }
 

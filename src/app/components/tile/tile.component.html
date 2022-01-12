@@ -50,7 +50,7 @@
     <!-- <input [(ngModel)]="searchText"> -->
     <p *ngIf="errMessage">{{errMessage}}</p>
     <!-- [cols]="cols | async" -->
-    <mat-grid-list #grid  gutterSize="5vw" rowHeight="4:5">
+    <mat-grid-list #grid [cols]="(asyncValue | async) || 1" gutterSize="5vw" rowHeight="4:5">
         <mat-grid-tile  *ngFor="let countries of Countries">
             <mat-card class="settings-card"
                 routerLink="/single-country/{{countries.name}}"

@@ -16,6 +16,7 @@ import { ThemeService } from './../../core/services/theme.service';
 })
 export class SingleCountryComponent implements OnInit {
   name: string;
+  lName;
   id: number;
   countryId;
   country: Country = new Country();
@@ -64,7 +65,9 @@ export class SingleCountryComponent implements OnInit {
         this.country = response[i];
         this.reg = this.country.regionalBlocs[i];
         this.currencies = this.country.currencies[i];
-        this.languages = this.country.languages;
+        this.languages = this.country.languages[0];
+        this.lName = this.languages.name;
+        //console.log(this.languages);
         this.borders = this.country.borders;
         for (var i = 0; i < this.borders.length; i++) {
           this.border1 = this.country.borders[i];
